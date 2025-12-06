@@ -28,6 +28,10 @@ h2 {
     color: #333 !important;
 }
 
+h4 {
+    color: #333 !important;
+}
+
 .page-header {
     background: linear-gradient(120deg, #bbdcfd, #15505b) !important;
 }

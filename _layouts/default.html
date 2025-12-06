@@ -24,7 +24,10 @@
       {% elsif site.github.is_project_page %}
         <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
       {% endif %}
-      <a href="https://www.linkedin.com/in/charles-mowbray" class="btn">linkedin</a>  <!-- Add your new button here -->
+      {% unless page.home_page %}
+        <a href="/" class="btn">Back to Portfolio</a>
+      {% endunless %}
+      <a href="https://www.linkedin.com/in/charles-mowbray" class="btn">LinkedIn</a>  <!-- Add your new button here -->
 
       {% if site.show_downloads %}
         <a href="{{ site.github.zip_url }}" class="btn">Download .zip</a>
