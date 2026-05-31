@@ -1,6 +1,30 @@
-# charles-mowbray.github.io
-Portfolio page built in github pages with jekyll
+# rl-charles.github.io
 
-`Note:` This Repo and project is just for the portfolio website, not a major project. I work mostly in backend and want to avoid front end as much as possible. 
+Personal portfolio site — built with [Astro](https://astro.build) and deployed to GitHub Pages.
 
-To start the server run: `bundle exec jekyll serve`
+## Develop
+
+```bash
+npm install
+npm run dev        # http://localhost:4321
+```
+
+## Build & preview
+
+```bash
+npm run build      # → dist/
+npm run preview
+```
+
+## Deploy
+
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the site and
+publishes it to GitHub Pages. Set **Settings → Pages → Source = GitHub Actions** once.
+
+## Adding content
+
+Drop a Markdown file in `src/content/projects/` or `src/content/experience/`. See
+[CLAUDE.md](./CLAUDE.md) for the frontmatter schema and conventions.
+
+> Note: this repo migrated from Jekyll to Astro. The site is a portfolio, not a major
+> project — kept simple on purpose.

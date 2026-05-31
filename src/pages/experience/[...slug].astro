@@ -1,0 +1,52 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const experience = await getCollection('experience');
+  return experience.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, role, company, tools, logo } = entry.data;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<Base title={`${role ?? title} — Charles Mowbray`} description={title}>
+  <main class="wrap article">
+    <a class="back" href={`${base}/`}>← Back to portfolio</a>
+
+    <article class="prose reveal is-visible">
+      <p class="eyebrow">Experience</p>
+      {logo && <img class="logo" src={`${base}${logo}`} alt={company ?? title} />}
+      <h1>{role ?? title}</h1>
+      {company && <p class="article-sub">{company}</p>}
+
+      {tools.length > 0 && (
+        <div class="card-tools" style="margin: 1rem 0 0.5rem;">
+          {tools.map((t) => <span class="chip">{t}</span>)}
+        </div>
+      )}
+
+      <hr />
+      <Content />
+    </article>
+  </main>
+</Base>
+
+<style>
+  .article { padding-top: 3rem; max-width: 760px; }
+  .back {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    display: inline-block;
+    margin-bottom: 1.5rem;
+  }
+  .article-sub { color: var(--text-dim); font-size: 1.1rem; margin: 0; }
+  .logo { max-height: 60px; width: auto; border: 0 !important; margin: 0 0 1rem !important; }
+</style>
