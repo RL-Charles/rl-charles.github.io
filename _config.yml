@@ -3,8 +3,8 @@ email: charleswdmowbray@gmail.com
 description: >- 
   Here is a collection of my projects and work.
 baseurl: "" 
-url: "https://charles-mowbray.github.io"
-github_username: charles-mowbray
+url: "https://rl-charles.github.io"
+github_username: rl-charles
 
 collections:
   projects:

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Alien Invaders
-github_repo: https://github.com/charles-mowbray/alien-invaders-final 
+github_repo: https://github.com/RL-Charles/alien-invaders-final 
 ---
 
 <div class="experience-box" markdown="1">
@@ -12,7 +12,7 @@ github_repo: https://github.com/charles-mowbray/alien-invaders-final
 **Languages Used:** C++  
 **Libraries Used:** SFML, Chronos  
 **Developed On:** Linux  
-[Github Page](https://github.com/charles-mowbray/alien-invaders-final)  
+[Github Page](https://github.com/RL-Charles/alien-invaders-final)  
 ## Overview
 - CSCI 261 Final Project  
 - Rebuilt Space Invaders in C++ using just the SFML Window Library  

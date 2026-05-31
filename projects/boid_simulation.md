@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Under The Sea
-github_repo: https://github.com/charles-mowbray/Under-The-Sea
+github_repo: https://github.com/RL-Charles/Under-The-Sea
 
 ---
 
@@ -13,7 +13,7 @@ github_repo: https://github.com/charles-mowbray/Under-The-Sea
 **Languages Used:** C/C++  
 **Libraries Used:** OpenGL, GLEW  
 **Developed On:** Linux(Debian)  
-[Github Page](https://github.com/charles-mowbray/Under-The-Sea)
+[Github Page](https://github.com/RL-Charles/Under-The-Sea)
 ## Overview
 - Developed a 3D graphic simulation of fish under the sea leveraging the openGL library 
 - Developed Dynamic lighting with Phong shaders, Geometric Shaders for natural movement, and texture shaders to map on to surfaces
