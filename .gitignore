@@ -1,6 +1,10 @@
-_site
-.sass-cache
-.jekyll-cache
-.jekyll-metadata
-vendor
-.bundle
+# Astro / Node
+node_modules/
+dist/
+.astro/
+
+# Logs / env
+*.log
+.env
+.env.production
+.DS_Store

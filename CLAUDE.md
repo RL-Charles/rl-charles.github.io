@@ -4,71 +4,96 @@ Guidance for working in this repository.
 
 ## What this is
 
-A personal portfolio website built with **Jekyll** and hosted on **GitHub Pages**.
-It is a *user/organization Pages site* — the repo is named `<username>.github.io`,
-so it publishes at the account's root domain (e.g. `https://<username>.github.io/`).
+A personal portfolio website built with **Astro** and deployed to **GitHub Pages**.
+It is a *user Pages site* — the repo is named `<username>.github.io`, so it publishes at
+the account's root domain (`https://rl-charles.github.io/`).
 
-It is intentionally small and front-end-light. The owner works primarily in backend
-and wants to keep the site simple — prefer minimal, dependency-free changes over
-introducing build tooling, JS frameworks, or heavy CSS.
+It is intentionally small and content-light. Aesthetic is **refined dark-tech** (deep-space
+base, cyan/amber accents, monospace labels, a canvas starfield hero). Keep changes minimal
+and dependency-light — prefer plain CSS/Canvas over adding heavy libraries or React unless a
+feature genuinely needs interactivity.
+
+> Migrated from Jekyll in 2026. If you find references to `_config.yml`, `Gemfile`, or
+> `jekyll-theme-cayman`, they are stale.
 
 ## Tech stack
 
-- **Jekyll** via the `github-pages` gem (versions are pinned by GitHub Pages, see `Gemfile.lock`).
-- Theme: **`jekyll-theme-cayman`** (remote theme styling lives in the gem, not in this repo).
-- Plugins: `jekyll-feed`, `jekyll-seo-tag`.
-- Content is **Markdown with embedded HTML/inline CSS** (the cards on the home page are
-  hand-written HTML blocks inside `index.md`).
+- **Astro 5** (static output). No UI framework — pages are `.astro` + Markdown.
+- **Content collections** (`src/content.config.ts`) using the `glob` loader — replaces the
+  old Jekyll `projects` collection. Two collections: `projects` and `experience`.
+- Styling: one global stylesheet (`src/styles/global.css`) defining CSS variables + a small
+  set of component classes (`.card`, `.chip`, `.btn`, `.prose`, `.reveal`). Per-page tweaks
+  live in scoped `<style>` blocks inside the `.astro` files.
+- Fonts: Inter + JetBrains Mono from Google Fonts (loaded in `Base.astro`).
 
 ## Layout
 
 | Path | Purpose |
 |------|---------|
-| `_config.yml` | Site config: title, URL, theme, plugins, the `projects` collection. |
-| `index.md` | Home page. Hand-built HTML cards linking to experience + project pages. |
-| `_layouts/default.html` | The only layout. Wraps every page; defines the header buttons (Back to Portfolio, LinkedIn) and the footer (contact info). |
-| `index.css` | Small global overrides (also duplicated in `assets/css/custom.css`). |
-| `assets/css/custom.css` | Theme overrides actually loaded by `default.html`. **Edit this one** for styling. |
-| `experience/*.md` | Work-experience detail pages (e.g. `hp_poly.md`). |
-| `projects/*.md` | The `projects` collection. Each has front matter (`title`, optional `github_repo`) and permalinks to `/projects/:path/`. |
-| `assets/images`, `assets/gifs` | Media used by the cards and detail pages. |
+| `src/pages/index.astro` | Home page — hero + starfield, then experience/project card grids pulled from the collections. |
+| `src/pages/projects/[...slug].astro` | Renders each project from the `projects` collection at `/projects/<slug>/`. |
+| `src/pages/experience/[...slug].astro` | Renders each experience entry at `/experience/<slug>/`. |
+| `src/layouts/Base.astro` | HTML shell: `<head>`/SEO/OG tags, fonts, footer, and the scroll-reveal `IntersectionObserver` script. |
+| `src/components/Starfield.astro` | Canvas starfield background (parallax, reduced-motion aware, pauses on hidden tab). |
+| `src/components/Card.astro` | Summary card used in the home-page grids. |
+| `src/content/projects/*.md` | Project content. Frontmatter is validated by the schema in `src/content.config.ts`. |
+| `src/content/experience/*.md` | Work-experience content. |
+| `src/styles/global.css` | Theme tokens + shared component classes. **Start here for styling.** |
+| `public/assets/images`, `public/assets/gifs` | Static media, served at `/assets/...`. |
+| `.github/workflows/deploy.yml` | Builds the site and deploys `dist/` to GitHub Pages on push to `main`. |
 
-## Conventions
+## Content model
 
-- **Detail pages** use `layout: default` and wrap body content in
-  `<div class="experience-box" markdown="1"> … </div>` so Markdown still renders inside the HTML.
-- **Images** are referenced with `{{ site.baseurl }}/assets/...` — keep using `site.baseurl`
-  so links survive a base-path change.
-- **Internal navigation** currently uses **root-absolute paths** (`/`, `/projects/foo`,
-  `/experience/bar`). These only work while the site is served from the domain root
-  (a user Pages site). If this ever becomes a *project* page (served under a subpath),
-  every such link must be prefixed with `{{ site.baseurl }}` and `baseurl` set accordingly.
-- New project cards: copy an existing `.experience-box` block in `index.md` and add a
-  matching `projects/<name>.md`.
-- `assets/css/custom.css` is the stylesheet linked by the layout; `index.css` at the repo
-  root is **not** linked and is effectively dead — consolidate into `custom.css` if touched.
+Frontmatter is type-checked at build time (`src/content.config.ts`). To add a project, drop a
+new file in `src/content/projects/`:
+
+```markdown
+---
+title: My Project
+subtitle: One-line description
+tools: ["Rust", "WebGPU"]          # rendered as chips
+image: /assets/images/foo.png       # card thumbnail + header (served from public/)
+github_repo: https://github.com/RL-Charles/foo   # optional → "View on GitHub" button
+order: 4                            # lower sorts first on the home page
+---
+
+Markdown body — headings, lists, code, images all render inside `.prose`.
+```
+
+The filename (minus `.md`) becomes the URL slug. `experience` works the same way with
+`role`, `company`, and `logo` fields.
+
+Conventions:
+- Reference images as `/assets/...` (root-absolute). They live in `public/`. Do **not** use
+  the old Jekyll `{{ site.baseurl }}` syntax — it no longer applies.
+- Write plain Markdown — no wrapping `<div markdown="1">` blocks (that was a Jekyll/kramdown
+  thing; Astro's Markdown does not re-parse Markdown inside raw HTML blocks).
+- Internal links use `import.meta.env.BASE_URL` so they survive a base-path change. `BASE_URL`
+  is `/` for this user Pages site.
 
 ## Local development
 
 ```bash
-bundle install            # first time
-bundle exec jekyll serve  # serves at http://localhost:4000
+npm install          # first time
+npm run dev          # dev server at http://localhost:4321
+npm run build        # static build into dist/
+npm run preview      # serve the built dist/ locally
+npm run check        # astro type-check
 ```
 
-Build output goes to `_site/` (git-ignored). GitHub builds and deploys automatically on
-push to the default branch — there is no separate CI.
+## Deployment
+
+Push to `main` → the `deploy.yml` Action runs `npm ci && npm run build` and publishes `dist/`
+to GitHub Pages. **One-time setup:** in the repo, Settings → Pages → *Build and deployment*
+→ Source = **GitHub Actions** (not "Deploy from a branch"). There is no Jekyll build anymore.
 
 ## Gotchas
 
-- The Cayman theme's own CSS comes from the gem; you can only override it via
-  `assets/css/custom.css` (note the `!important` overrides already there).
-- `_config.yml` changes require a server restart locally; they do NOT hot-reload.
-- The site URL, `github_username`, and any `github_repo:` front-matter links must match
-  the current GitHub account name — see the rename note below.
-
-## Repo / account name
-
-The GitHub account was renamed `charles-mowbray` → `RL-Charles`. For a user Pages site
-the repository **must** be named `<username>.github.io`. If the account is `rl-charles`,
-the repo must be `rl-charles.github.io` to publish at `https://rl-charles.github.io/`.
-Keep `_config.yml` `url`/`github_username` and the git remote in sync with the account name.
+- Repo name must stay `rl-charles.github.io` to remain a root user Pages site; if the GitHub
+  account is ever renamed, rename the repo and update `site` in `astro.config.mjs`.
+- `astro.config.mjs` `base` is `/`. If this becomes a *project* page, set `base: '/<repo>'`
+  — the `BASE_URL`-aware links and asset paths will follow automatically.
+- The starfield and scroll-reveal both honor `prefers-reduced-motion`; keep that contract when
+  adding motion.
+- `Date.now()`/`Math.random()` are fine in Astro app code (this note only applies to the
+  Claude workflow runtime, not the site).
