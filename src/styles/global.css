@@ -23,8 +23,8 @@
   --glow: rgba(54, 214, 231, 0.35);
 
   /* Type */
-  --font-sans: "Inter", "Open Sans", system-ui, -apple-system, sans-serif;
-  --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", ui-monospace, monospace;
+  --font-sans: "Roboto", "Inter", "Open Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "Roboto Mono", "JetBrains Mono", "SF Mono", "Fira Code", ui-monospace, monospace;
 
   --maxw: 980px;
   --radius: 10px;
