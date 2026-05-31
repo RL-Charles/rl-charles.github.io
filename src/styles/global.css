@@ -5,16 +5,16 @@
 
 :root {
   /* Surfaces */
-  --bg: #0a0e16;
+  --bg: #06080d;
   --bg-elev: #111722;
-  --bg-card: #131a27;
+  --bg-card: #0d131f;
   --border: #1f2a3a;
-  --border-bright: #2c3e57;
+  --border-bright: #334661;
 
   /* Text */
   --text: #d8e0ec;
-  --text-dim: #8a98ad;
-  --text-faint: #5e6b80;
+  --text-dim: #a0b2cc;
+  --text-faint: #7d8d9f;
 
   /* Accents */
   --accent: #36d6e7;       /* electric cyan */
@@ -26,7 +26,7 @@
   --font-sans: "Inter", "Open Sans", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", ui-monospace, monospace;
 
-  --maxw: 920px;
+  --maxw: 980px;
   --radius: 10px;
 }
 
@@ -38,7 +38,17 @@ html {
 
 body {
   margin: 0;
-  background: var(--bg);
+  /* Aurora glow: one faint cyan radial bleeding from top-center, fading to the
+     near-black base. Fixed so it stays put while content scrolls. */
+  background:
+    radial-gradient(
+      140% 90% at 50% -15%,
+      rgba(54, 214, 231, 0.10) 0%,
+      rgba(54, 214, 231, 0.035) 30%,
+      transparent 60%
+    ),
+    var(--bg);
+  background-attachment: fixed;
   color: var(--text);
   font-family: var(--font-sans);
   line-height: 1.65;
@@ -219,6 +229,27 @@ pre code { background: none; border: 0; padding: 0; }
   color: var(--accent);
   margin-top: 0.9rem;
   display: inline-block;
+  transition: transform 0.2s ease;
+}
+.card:hover .card-cta {
+  transform: translateX(4px);
+}
+
+/* Back button (detail pages) ---------------------------------- */
+.back {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 1.5rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.back:hover {
+  color: var(--accent);
+  text-decoration: none;
+  transform: translateX(-4px);
 }
 
 /* Article (detail page) prose -------------------------------- */
@@ -241,6 +272,32 @@ pre code { background: none; border: 0; padding: 0; }
 .prose strong { color: var(--text); }
 .prose a { color: var(--accent); }
 
+/* Tables ------------------------------------------------------ */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.9rem;
+}
+.prose th, .prose td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+.prose th {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 2px solid var(--border-bright);
+}
+.prose tr:hover td {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.01);
+}
+
+
 /* Footer ------------------------------------------------------ */
 .site-footer {
   margin-top: 5rem;
@@ -250,8 +307,22 @@ pre code { background: none; border: 0; padding: 0; }
   font-family: var(--font-mono);
   font-size: 0.8rem;
 }
-.site-footer span { display: block; margin-bottom: 0.25rem; }
+.site-footer .wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.site-footer span { display: block; }
 .site-footer a { color: var(--text-dim); }
+
+@media (min-width: 640px) {
+  .site-footer .wrap {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
 
 /* Responsive -------------------------------------------------- */
 @media (max-width: 640px) {

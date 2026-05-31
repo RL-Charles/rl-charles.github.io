@@ -26,6 +26,13 @@ const experience = defineCollection({
     logo: z.string().optional(),
     image: z.string().optional(),
     tools: z.array(z.string()).default([]),
+    // Categorized skills, rendered as a grid on the detail page.
+    skills: z
+      .array(z.object({ group: z.string(), items: z.array(z.string()) }))
+      .optional(),
+    // Hero image for the detail page (distinct from `image`, the home-card thumbnail).
+    lead_image: z.string().optional(),
+    lead_image_alt: z.string().optional(),
     order: z.number().default(99),
   }),
 });
