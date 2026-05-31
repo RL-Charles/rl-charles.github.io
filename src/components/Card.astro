@@ -9,10 +9,11 @@ interface Props {
 }
 const { href, title, blurb, image, tools = [] } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const isLogo = image?.includes('logo');
 ---
 
 <a class="card reveal" href={href}>
-  {image && <img class="card-media" src={`${base}${image}`} alt={title} loading="lazy" />}
+  {image && <img class={`card-media ${isLogo ? 'is-logo' : ''}`} src={`${base}${image}`} alt={title} loading="lazy" />}
   <h3>{title}</h3>
   {blurb && <p>{blurb}</p>}
   {tools.length > 0 && (

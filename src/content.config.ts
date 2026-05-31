@@ -11,6 +11,8 @@ const projects = defineCollection({
     tools: z.array(z.string()).default([]),
     image: z.string().optional(),
     github_repo: z.string().url().optional(),
+    github_backend: z.string().url().optional(),
+    github_client: z.string().url().optional(),
     // Lower numbers sort first on the home page.
     order: z.number().default(99),
   }),

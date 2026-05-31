@@ -12,7 +12,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
-const { title, subtitle, tools, github_repo } = entry.data;
+const { title, subtitle, tools, github_repo, github_backend, github_client } = entry.data;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
@@ -30,8 +30,18 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           {tools.map((t) => <span class="chip">{t}</span>)}
         </div>
       )}
-      {github_repo && (
-        <p><a class="btn" href={github_repo}>View on GitHub ↗</a></p>
+      {(github_repo || github_client || github_backend) && (
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 1.5rem;">
+          {github_repo && (
+            <a class="btn" href={github_repo}>View on GitHub ↗</a>
+          )}
+          {github_client && (
+            <a class="btn" href={github_client}>Frontend Client ↗</a>
+          )}
+          {github_backend && (
+            <a class="btn" href={github_backend}>Backend API ↗</a>
+          )}
+        </div>
       )}
 
       <hr />
