@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title description">
+  <title id="title">Tested JCD543 USB display connection</title>
+  <desc id="description">A ThinkPad connects by USB-C to a JCD543 dock. The dock's MCT HDMI output connects to one HP X27q monitor. The experimental driver has shown one 1920 by 1080 display at 60 hertz on this setup.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1 1 L 10 6 L 1 11" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="520" fill="#fffefa"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#20242b">
+    <text x="52" y="48" font-size="27" font-weight="700">JCD543 display driver: tested connection</text>
+    <text x="52" y="79" font-size="17" fill="#5c6470">One external display on one dock and host</text>
+
+    <!-- ThinkPad: slight line variation keeps the diagram informal and readable. -->
+    <path d="M 71 158 Q 72 149 81 149 L 291 150 Q 301 150 301 159 L 300 295 L 72 294 Z" fill="#fff" stroke="#30343b" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M 84 163 L 288 163 L 288 278 L 84 278 Z" fill="#eaf2ff" stroke="#30343b" stroke-width="2.5"/>
+    <path d="M 62 299 Q 58 300 63 305 L 311 306 Q 318 306 315 300 L 300 294 L 72 294 Z" fill="#e8e9eb" stroke="#30343b" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M 155 300 L 223 300" fill="none" stroke="#30343b" stroke-width="2"/>
+    <text x="187" y="344" font-size="20" text-anchor="middle" font-weight="700">ThinkPad</text>
+    <text x="187" y="368" font-size="15" text-anchor="middle" fill="#5c6470">Linux / Omarchy</text>
+
+    <!-- JCD543 dock and the single tested video port. -->
+    <path d="M 467 219 Q 468 207 480 207 L 688 208 Q 700 208 700 220 L 699 294 Q 699 307 687 307 L 479 306 Q 467 306 467 294 Z" fill="#f5f5f3" stroke="#30343b" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M 499 276 L 526 276 L 526 287 L 499 287 Z M 550 276 L 575 276 L 575 287 L 550 287 Z" fill="#fff" stroke="#30343b" stroke-width="2"/>
+    <path d="M 633 273 L 675 273 L 673 287 L 635 287 Z" fill="#fff" stroke="#2563eb" stroke-width="2.5"/>
+    <text x="654" y="260" font-size="13" text-anchor="middle" fill="#2563eb">MCT HDMI</text>
+    <text x="584" y="344" font-size="20" text-anchor="middle" font-weight="700">j5create JCD543 dock</text>
+
+    <!-- HP monitor. -->
+    <path d="M 874 151 Q 874 143 883 143 L 1118 143 Q 1127 143 1127 153 L 1126 302 Q 1126 311 1117 311 L 883 310 Q 874 310 874 301 Z" fill="#fff" stroke="#30343b" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M 887 156 L 1114 156 L 1114 296 L 887 296 Z" fill="#eaf2ff" stroke="#30343b" stroke-width="2"/>
+    <path d="M 950 225 Q 986 194 1022 225 T 1090 225" fill="none" stroke="#8fb6f7" stroke-width="3" stroke-linecap="round"/>
+    <path d="M 1001 311 L 1001 334 M 956 335 L 1048 335" fill="none" stroke="#30343b" stroke-width="3" stroke-linecap="round"/>
+    <text x="1001" y="368" font-size="20" text-anchor="middle" font-weight="700">HP X27q monitor</text>
+
+    <!-- Only the tested signal path is emphasized. -->
+    <path d="M 317 244 C 363 239 412 239 456 244" fill="none" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+    <text x="386" y="223" font-size="17" text-anchor="middle" fill="#2563eb" font-weight="700">USB-C</text>
+    <path d="M 702 244 C 750 239 809 240 863 244" fill="none" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+    <text x="786" y="223" font-size="17" text-anchor="middle" fill="#2563eb" font-weight="700">MCT HDMI</text>
+
+    <path d="M 52 401 Q 52 390 64 390 L 1137 390 Q 1148 390 1148 402 L 1148 445 Q 1148 456 1137 456 L 64 456 Q 52 456 52 445 Z" fill="#eef5ff" stroke="#b6d0fb" stroke-width="2"/>
+    <text x="74" y="417" font-size="18" fill="#1749a0" font-weight="700">Demonstrated:</text>
+    <text x="225" y="417" font-size="18">one MCT HDMI display at 1920 × 1080, 60 Hz</text>
+    <text x="74" y="442" font-size="15" fill="#5c6470">Experimental on this exact setup; VGA, a second display, native 1440p, and routine reconnect remain unverified.</text>
+  </g>
+</svg>
