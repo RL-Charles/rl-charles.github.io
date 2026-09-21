@@ -3,7 +3,7 @@ title: Robotic Elmo
 subtitle: Sensor-driven interactive toy — CSCI 250 final, Spring 2022
 tools: ["Python", "NumPy", "Pandas", "Matplotlib", "Raspberry Pi", "Linux"]
 image: /assets/images/bread_board_elmo.jpg
-order: 3
+order: 6
 ---
 
 Developed on Ubuntu / Raspberry Pi.

@@ -3,19 +3,18 @@ title: Blink Financial Intelligence
 subtitle: AI-powered CFO & automated financial intelligence platform for SMBs
 tools: ["React", "TypeScript", "FastAPI", "Python", "LangGraph", "DuckDB", "PostgreSQL", "Redis", "AWS Bedrock", "Docker", "Tailwind CSS"]
 image: /assets/images/blinkos_logo.png
-github_client: https://github.com/RL-Charles/blink-client
-github_backend: https://github.com/RL-Charles/Blinkos_backend
 order: 0
 ---
 
 Blink Financial Intelligence is a production AI-driven CFO platform. It securely ingests raw business financial data (P&L sheets, balance sheets, and journal transactions) and processes it through a multi-agent orchestration pipeline to deliver CFO-grade insights, automated hiring/budgeting decisions, and synthesized reports for business owners. The live platform is available at [blinkos.app](https://blinkos.app).
 
-## Tech Stack & Repositories
+## Tech Stack
 
-The system is split into two specialized, load-bearing repositories:
 * **Live Application**: [blinkos.app](https://blinkos.app)
-* **Frontend**: [blink-client](https://github.com/RL-Charles/blink-client) — React, Vite, Tailwind CSS, React Router v7, Auth0.
-* **Backend**: [Blinkos_backend](https://github.com/RL-Charles/Blinkos_backend) — Python, FastAPI, LangGraph, DuckDB, PostgreSQL, Redis, AWS Bedrock.
+* **Frontend**: React, Vite, Tailwind CSS, React Router v7, Auth0.
+* **Backend**: Python, FastAPI, LangGraph, DuckDB, PostgreSQL, Redis, AWS Bedrock.
+
+The application source repositories are private.
 
 ---
 

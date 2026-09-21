@@ -4,7 +4,7 @@ subtitle: Space Invaders clone built in C++ / SFML
 tools: ["C++", "SFML", "Chrono", "Linux"]
 image: /assets/images/space_invaders.png
 github_repo: https://github.com/RL-Charles/alien-invaders-final
-order: 2
+order: 5
 ---
 
 ## Overview

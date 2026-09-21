@@ -4,7 +4,7 @@ subtitle: OpenGL Computer Graphics — Interactive Boid Simulation
 tools: ["C++", "OpenGL", "GLSL Shaders", "GLFW / GLEW", "GLM", "Linux"]
 image: /assets/gifs/under_the_sea.gif
 github_repo: https://github.com/RL-Charles/Under-The-Sea
-order: 1
+order: 4
 ---
 
 Developed on Linux (Debian).
