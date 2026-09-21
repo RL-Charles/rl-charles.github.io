@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import Starfield from '../components/Starfield.astro';
+import LandscapeBackdrop from '../components/LandscapeBackdrop.astro';
 import Card from '../components/Card.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -14,8 +14,8 @@ const experience = (await getCollection('experience')).sort(
 );
 ---
 
-<Base>
-  <Starfield />
+<Base landscapeCredit>
+  <LandscapeBackdrop />
 
   <header class="hero">
     <div class="wrap">
