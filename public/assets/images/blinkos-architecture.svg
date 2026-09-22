@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title description">
+  <title id="title">BlinkOS application architecture</title>
+  <desc id="description">The React client sends requests to FastAPI, which handles company access, uploads, integrations, analysis jobs, and WebSocket progress. Uploaded documents and Xero, QuickBooks, and Procore data are normalized into company financial data in DuckDB. A LangGraph analysis workflow reads that data and uses AWS Bedrock to produce reports, chart specifications, and decisions. PostgreSQL stores companies, documents, and reports. Redis supports jobs, events, caching, and DuckDB write locks.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M1 1 L9 5 L1 9" fill="none" stroke="#40505a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <style>
+    .ink { fill: #27343b; }
+    .muted { fill: #52616a; }
+    .title { font: 700 36px 'Trebuchet MS', Arial, sans-serif; }
+    .subtitle { font: 18px 'Trebuchet MS', Arial, sans-serif; }
+    .box-title { font: 700 26px 'Trebuchet MS', Arial, sans-serif; }
+    .body { font: 18px 'Trebuchet MS', Arial, sans-serif; }
+    .small { font: 16px 'Trebuchet MS', Arial, sans-serif; }
+    .label { font: 700 17px 'Trebuchet MS', Arial, sans-serif; }
+    .outline { stroke: #40505a; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+    .sketch { fill: none; stroke: #40505a; stroke-width: 1.1; opacity: .42; stroke-linecap: round; stroke-linejoin: round; }
+    .flow { fill: none; stroke: #40505a; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrow); }
+    .link { fill: none; stroke: #677782; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 5 6; marker-end: url(#arrow); }
+  </style>
+
+  <rect width="1200" height="680" fill="#fbfaf6"/>
+  <text x="55" y="59" class="title ink">BlinkOS application architecture</text>
+  <text x="55" y="89" class="subtitle muted">Business data becomes a financial review, decisions, and dashboards.</text>
+  <path d="M55 108 C331 106 577 110 851 107 L1145 109" fill="none" stroke="#d2d7d3" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Main application flow -->
+  <path d="M65 158 L298 154 Q309 155 310 166 L308 317 Q307 329 297 330 L65 332 Q55 332 55 321 L54 169 Q54 160 65 158 Z" fill="#e8f3f5" class="outline"/>
+  <path d="M62 163 L301 158 M59 324 L297 326" class="sketch"/>
+  <text x="80" y="203" class="box-title ink">React client</text>
+  <text x="80" y="242" class="body ink">Upload and review data</text>
+  <text x="80" y="272" class="body ink">Dashboards and chat</text>
+  <text x="80" y="302" class="small muted">Auth0 sign-in</text>
+
+  <path d="M365 156 L598 154 Q610 156 610 168 L608 319 Q606 332 595 331 L365 333 Q355 332 355 321 L354 168 Q355 157 365 156 Z" fill="#fbefd9" class="outline"/>
+  <path d="M361 161 L603 159 M359 325 L599 327" class="sketch"/>
+  <text x="380" y="203" class="box-title ink">FastAPI</text>
+  <text x="380" y="242" class="body ink">JWT + company access</text>
+  <text x="380" y="272" class="body ink">Uploads and sync jobs</text>
+  <text x="380" y="302" class="small muted">HTTP + WebSocket progress</text>
+
+  <path d="M665 156 L900 153 Q911 155 910 166 L908 319 Q907 332 897 331 L665 333 Q654 331 655 321 L654 168 Q654 158 665 156 Z" fill="#f0ebf6" class="outline"/>
+  <path d="M662 161 L903 158 M660 326 L901 326" class="sketch"/>
+  <text x="680" y="203" class="box-title ink">Analysis services</text>
+  <text x="680" y="242" class="body ink">LangGraph CFO workflow</text>
+  <text x="680" y="272" class="body ink">Metrics and interview</text>
+  <text x="680" y="302" class="small muted">Liquidity, profit, risk</text>
+
+  <path d="M966 157 L1133 155 Q1146 157 1145 169 L1144 319 Q1143 330 1132 331 L965 333 Q954 332 955 321 L954 168 Q955 158 966 157 Z" fill="#eaf3e8" class="outline"/>
+  <path d="M961 161 L1138 159 M960 327 L1138 326" class="sketch"/>
+  <text x="980" y="203" class="box-title ink">Results</text>
+  <text x="980" y="242" class="body ink">CFO report</text>
+  <text x="980" y="272" class="body ink">Decisions</text>
+  <text x="980" y="302" class="small muted">Charts + insights</text>
+
+  <path d="M316 243 C329 241 338 243 347 243" class="flow"/>
+  <path d="M616 243 C629 241 638 243 647 243" class="flow"/>
+  <path d="M916 243 C929 241 938 243 947 243" class="flow"/>
+
+  <!-- Inputs and persistent state -->
+  <path d="M65 426 L298 423 Q311 425 310 437 L308 571 Q307 584 297 584 L65 586 Q54 585 55 574 L54 439 Q55 428 65 426 Z" fill="#f7eee0" class="outline"/>
+  <path d="M61 431 L302 428 M59 579 L301 580" class="sketch"/>
+  <text x="80" y="468" class="box-title ink">Business inputs</text>
+  <text x="80" y="507" class="body ink">CSV, XLSX, PDF uploads</text>
+  <text x="80" y="537" class="body ink">Xero + QuickBooks</text>
+  <text x="80" y="567" class="small muted">Procore jobs + budgets</text>
+
+  <path d="M365 426 L897 423 Q910 425 910 438 L908 571 Q907 584 896 584 L365 586 Q354 585 355 574 L354 439 Q355 428 365 426 Z" fill="#edf2ee" class="outline"/>
+  <path d="M361 431 L903 428 M359 579 L901 580" class="sketch"/>
+  <text x="380" y="468" class="box-title ink">Company data and job state</text>
+  <text x="380" y="503" class="body ink"><tspan font-weight="700">DuckDB</tspan>  financial facts per company</text>
+  <text x="380" y="535" class="body ink"><tspan font-weight="700">PostgreSQL</tspan>  companies, documents, reports</text>
+  <text x="380" y="567" class="body ink"><tspan font-weight="700">Redis</tspan>  jobs, events, cache, write locks</text>
+
+  <path d="M966 426 L1133 423 Q1146 425 1145 437 L1144 571 Q1143 584 1132 584 L965 586 Q954 585 955 574 L954 439 Q955 428 966 426 Z" fill="#f6e9e4" class="outline"/>
+  <path d="M961 431 L1138 428 M960 580 L1138 579" class="sketch"/>
+  <text x="980" y="468" class="box-title ink" style="font-size: 22px">AWS Bedrock</text>
+  <text x="980" y="507" class="body ink">Model calls</text>
+  <text x="980" y="537" class="small muted">Analysis + chat</text>
+
+  <path d="M314 505 L332 505 Q339 504 339 496 L339 305 Q339 294 347 293" class="link"/>
+  <path d="M482 338 C481 365 481 390 482 416" class="link"/>
+  <path d="M784 416 C784 391 784 365 784 341" class="link"/>
+  <path d="M912 310 C939 337 937 400 947 458" class="link"/>
+
+  <text x="55" y="638" class="small muted">Uploads and integrations feed company data. The API coordinates analysis and serves results to the client.</text>
+</svg>
