@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import LandscapeBackdrop from '../components/LandscapeBackdrop.astro';
 
 interface Props {
   title?: string;
@@ -40,6 +41,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     />
   </head>
   <body>
+    <LandscapeBackdrop />
     <slot />
 
     <footer class="site-footer">
@@ -48,6 +50,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
         <span>Location: Denver, CO</span>
         <span>Contact: <a href="mailto:charleswdmowbray@gmail.com">charleswdmowbray@gmail.com</a></span>
         <span><a href="https://www.linkedin.com/in/charles-mowbray">LinkedIn</a> · <a href="https://github.com/RL-Charles">GitHub</a></span>
+        <span>Background artwork: <a href="https://www.deviantart.com/rmradev/art/After-Sunset-Landscape-2-931600132">After Sunset Landscape 2</a> by rmRadev · <a href="https://creativecommons.org/licenses/by-nc/3.0/">CC BY-NC 3.0</a></span>
       </div>
     </footer>
 

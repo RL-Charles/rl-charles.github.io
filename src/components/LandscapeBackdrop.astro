@@ -1,0 +1,56 @@
+<div class="landscape-backdrop" aria-hidden="true">
+  <div class="landscape-image"></div>
+  <div class="landscape-shade"></div>
+</div>
+
+<style>
+  .landscape-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    transform: translate3d(var(--pointer-x, 0px), var(--pointer-y, 0px), 0);
+    transition: transform 300ms ease-out;
+    mask-image: linear-gradient(to bottom, #000 0%, #000 58%, transparent 100%);
+  }
+
+  .landscape-image,
+  .landscape-shade {
+    position: absolute;
+    inset: -3%;
+  }
+
+  .landscape-image {
+    background: url('/assets/images/blue-hour-valley.jpg') center 55% / cover no-repeat;
+    animation: landscape-drift 22s ease-in-out infinite alternate;
+  }
+
+  .landscape-shade {
+    background:
+      linear-gradient(90deg, rgba(6, 8, 13, 0.55), rgba(6, 8, 13, 0.15)),
+      linear-gradient(to bottom, rgba(6, 8, 13, 0.05), rgba(6, 8, 13, 0.30));
+  }
+
+  @keyframes landscape-drift {
+    from { transform: scale(1.04) translate3d(-0.4%, 0, 0); }
+    to { transform: scale(1.08) translate3d(0.4%, -0.4%, 0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .landscape-backdrop { transition: none; }
+    .landscape-image { animation: none; transform: scale(1.04); }
+  }
+</style>
+
+<script>
+  const backdrop = document.querySelector<HTMLElement>('.landscape-backdrop');
+  if (backdrop && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    window.addEventListener('pointermove', (event) => {
+      const x = (event.clientX / window.innerWidth - 0.5) * -12;
+      const y = (event.clientY / window.innerHeight - 0.5) * -12;
+      backdrop.style.setProperty('--pointer-x', `${x}px`);
+      backdrop.style.setProperty('--pointer-y', `${y}px`);
+    }, { passive: true });
+  }
+</script>
