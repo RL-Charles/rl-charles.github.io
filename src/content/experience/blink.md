@@ -9,7 +9,7 @@ skills:
   - group: Libraries, Services, & Databases
     items: ["LangGraph", "AWS Bedrock", "DuckDB", "PostgreSQL", "Redis"]
   - group: Frameworks
-    items: ["FastAPI", "React", "Vite", "Tailwind CSS"]
+    items: ["FastAPI", "React", "Tailwind CSS"]
   - group: Devops & Security
     items: ["Docker Compose", "Token Encryption", "Auth0"]
 order: 0
