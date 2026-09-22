@@ -8,6 +8,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const projects = (await getCollection('projects')).sort(
   (a, b) => a.data.order - b.data.order
 );
+const developmentSetup = projects.find((project) => project.id === 'development_setup');
+const portfolioProjects = projects.filter((project) => project.id !== 'development_setup');
 const experience = (await getCollection('experience')).sort(
   (a, b) => a.data.order - b.data.order
 );
@@ -27,6 +29,7 @@ const experience = (await getCollection('experience')).sort(
       <div class="hero-actions">
         <a class="btn" href="#experience">Experience</a>
         <a class="btn" href="#projects">Projects</a>
+        <a class="btn" href="#development-setup">Development Setup</a>
         <a class="btn" href="https://github.com/RL-Charles">GitHub ↗</a>
         <a class="btn" href="https://www.linkedin.com/in/charles-mowbray">LinkedIn ↗</a>
       </div>
@@ -49,7 +52,7 @@ const experience = (await getCollection('experience')).sort(
 
     <h2 class="section-title" id="projects"> Projects</h2>
     <div class="card-grid">
-      {projects.map((p) => (
+      {portfolioProjects.map((p) => (
         <Card
           href={`${base}/projects/${p.id}/`}
           title={p.data.title}
@@ -59,6 +62,19 @@ const experience = (await getCollection('experience')).sort(
         />
       ))}
     </div>
+
+    <h2 class="section-title" id="development-setup">Development Setup</h2>
+    {developmentSetup && (
+      <div class="card-grid">
+        <Card
+          href={`${base}/projects/development_setup/`}
+          title={developmentSetup.data.title}
+          blurb={developmentSetup.data.subtitle}
+          image={developmentSetup.data.image}
+          tools={developmentSetup.data.tools}
+        />
+      </div>
+    )}
   </main>
 </Base>
 
