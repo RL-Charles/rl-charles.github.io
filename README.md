@@ -1,6 +1,6 @@
 # rl-charles.github.io
 
-Personal portfolio site — built with [Astro](https://astro.build) and deployed to GitHub Pages.
+Personal portfolio site: built with [Astro](https://astro.build) and deployed to GitHub Pages.
 
 ## Develop
 
@@ -24,7 +24,7 @@ publishes it to GitHub Pages. Set **Settings → Pages → Source = GitHub Actio
 ## Adding content
 
 Drop a Markdown file in `src/content/projects/` or `src/content/experience/`. See
-[CLAUDE.md](./CLAUDE.md) for the frontmatter schema and conventions.
+[AGENTS.md](./AGENTS.md) for repository conventions and `src/content.config.ts` for the
+frontmatter schema.
 
-> Note: this repo migrated from Jekyll to Astro. The site is a portfolio, not a major
-> project — kept simple on purpose.
+> This portfolio migrated from Jekyll to Astro. Its structure stays simple on purpose.

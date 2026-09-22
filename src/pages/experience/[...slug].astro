@@ -17,7 +17,7 @@ const { title, role, company, tools, logo, skills, lead_image, lead_image_alt } 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<Base title={`${role ?? title} — Charles Mowbray`} description={title}>
+<Base title={`${role ?? title}: Charles Mowbray`} description={title}>
   <main class="wrap article">
     <a class="back" href={`${base}/`}>← Back to portfolio</a>
 
@@ -91,7 +91,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     gap: 0.35rem;
   }
 
-  /* Hardware image at the foot of the page — natural aspect ratio, no cropping. */
+  /* Hardware image at the foot of the page, preserving its natural aspect ratio. */
   .exp-footer-media {
     max-width: 100%;
     height: auto;

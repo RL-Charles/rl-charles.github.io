@@ -8,8 +8,8 @@ interface Props {
 }
 
 const {
-  title = "Charles Mowbray — Software Engineer",
-  description = "Portfolio of Charles Mowbray — fullstack, hardware, and AI-focused software engineering.",
+  title = "Charles Mowbray: Software Engineer",
+  description = "Portfolio of Charles Mowbray: full-stack, hardware, and infrastructure software engineering.",
 } = Astro.props;
 
 const base = import.meta.env.BASE_URL; // "/" for the user Pages site
@@ -55,7 +55,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     </footer>
 
     <script>
-      // Progressive scroll-reveal — opt-in via the `.reveal` class.
+      // Progressive scroll-reveal: opt-in via the `.reveal` class.
       const els = document.querySelectorAll<HTMLElement>('.reveal');
       if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
         const io = new IntersectionObserver(

@@ -1,6 +1,6 @@
 ---
 title: Robotic Elmo
-subtitle: Sensor-driven interactive toy — CSCI 250 final, Spring 2022
+subtitle: Sensor-driven interactive toy for CSCI 250, Spring 2022
 tools: ["Python", "NumPy", "Pandas", "Matplotlib", "Raspberry Pi", "Linux"]
 image: /assets/images/bread_board_elmo.jpg
 order: 6
@@ -17,14 +17,14 @@ Charles Mowbray & Thadeus Triandos
 A doll that records and interprets sound and acceleration data, meant to be played with
 as a toy. While recording, if the doll determines the sound or acceleration levels to be
 inadequate it plays a corresponding sound for whatever it determined to be out of the set
-thresholds. The challenge is to do different activities with the doll without tripping any
-of its sensors.
+thresholds. The challenge is to keep sensor readings below their thresholds while
+playing with the doll.
 
 ## Hardware
-- **Microphone** — collected audio data and sound levels to determine how much sound the doll was experiencing.
-- **Accelerometer** — recorded the doll's acceleration to determine whether it was being moved and at what rate.
-- **Button** — took user input to change the doll's mode.
-- **Speaker** — played `.wav` audio clips.
+- **Microphone**: collected audio data and sound levels to determine how much sound the doll was experiencing.
+- **Accelerometer**: recorded the doll's acceleration to determine whether it was being moved and at what rate.
+- **Button**: took user input to change the doll's mode.
+- **Speaker**: played `.wav` audio clips.
 
 ![Breadboard Elmo](/assets/images/bread_board_elmo.jpg)
 
@@ -32,7 +32,7 @@ of its sensors.
 - **Collect**: output from the accelerometer and recorder stored in NumPy arrays.
 - **Process**: adjusted data for the time delay between power-on and the button press, and wrote the data to an external file.
 - **Display**: graphed the recorder and accelerometer arrays.
-- **Interpret**: when an accelerometer or recorder threshold was met, a sound played — visible afterward in the graphed data.
+- **Interpret**: when an accelerometer or recorder threshold was met, a sound played and the graph showed the event.
 
 ## Code
 ```python

@@ -1,5 +1,5 @@
 /* ============================================================
-   Refined dark-tech theme — rl-charles portfolio
+   Refined dark-tech theme: rl-charles portfolio
    Deep space base, cyan + amber accents, monospace labels.
    ============================================================ */
 
@@ -334,7 +334,7 @@ pre code { background: none; border: 0; padding: 0; }
   .card-media { float: none; width: 100%; max-width: 100%; margin: 0 0 1rem; }
 }
 
-/* Motion-reveal — applied progressively via JS (see Base.astro) */
+/* Motion-reveal: applied progressively via JS (see Base.astro) */
 .reveal {
   opacity: 0;
   transform: translateY(16px);

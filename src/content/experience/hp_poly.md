@@ -22,7 +22,7 @@ order: 1
 ## Overview
 
 Building scalable testing processes and infrastructure that verify communication between
-Poly's hardware devices and their client applications — spanning low-level device libraries
+Poly's hardware devices and their client applications, spanning low-level device libraries
 up through full-stack integration-test frameworks.
 
 - **Architected a full-stack automated testing framework** for peripheral IoT devices using NestJS and GraphQL, replacing a legacy system to improve end-to-end testing consistency and performance.

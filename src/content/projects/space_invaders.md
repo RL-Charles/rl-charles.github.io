@@ -14,7 +14,7 @@ order: 5
 
 ## Description
 Rebuilt the classic arcade game Space Invaders in C++ as a final project for my
-freshman-year programming course — a chance to practice the fundamentals of
+freshman-year programming course: a chance to practice the fundamentals of
 object-oriented programming.
 
 ![Alien Invaders](/assets/images/space_invaders.png)
