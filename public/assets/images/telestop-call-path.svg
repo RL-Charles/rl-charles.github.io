@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="title description">
+  <title id="title">Telestop hardware and call flow</title>
+  <desc id="description">The PSTN landline enters a Grandstream HT813 FXO port. Its FXS port connects to the home phone, while Ethernet carries SIP calls to a Raspberry Pi running Asterisk, Python FastAGI, and SQLite. Trusted callers ring directly; unknown callers must press 1 within eight seconds or the call is disconnected.</desc>
+  <defs>
+    <marker id="blue-arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1 1 L 10 6 L 1 11" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="teal-arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1 1 L 10 6 L 1 11" fill="none" stroke="#168c93" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="650" fill="#fffefa"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#20242b">
+    <text x="52" y="48" font-size="27" font-weight="700">Telestop: how a landline call reaches the house phone</text>
+    <text x="52" y="78" font-size="17" fill="#5c6470">The gateway handles the analog connections; the Pi decides which calls ring.</text>
+
+    <!-- PSTN wall jack -->
+    <rect x="62" y="155" width="176" height="162" rx="12" fill="#f5f5f3" stroke="#30343b" stroke-width="3"/>
+    <rect x="107" y="190" width="86" height="81" rx="7" fill="#fff" stroke="#30343b" stroke-width="2.5"/>
+    <path d="M 126 213 L 174 213 L 174 247 L 126 247 Z M 138 222 L 138 238 M 150 222 L 150 238 M 162 222 L 162 238" fill="none" stroke="#30343b" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="150" y="351" font-size="20" text-anchor="middle" font-weight="700">Landline</text>
+    <text x="150" y="376" font-size="15" text-anchor="middle" fill="#5c6470">PSTN wall line</text>
+
+    <!-- Gateway with explicitly identified analog ports. -->
+    <rect x="393" y="160" width="413" height="157" rx="18" fill="#f5f5f3" stroke="#30343b" stroke-width="3"/>
+    <text x="600" y="199" font-size="24" text-anchor="middle" font-weight="700">Grandstream HT813</text>
+    <text x="600" y="225" font-size="16" text-anchor="middle" fill="#5c6470">analog telephone adapter</text>
+    <rect x="423" y="265" width="112" height="29" rx="5" fill="#fff" stroke="#2563eb" stroke-width="2"/>
+    <text x="479" y="285" font-size="15" text-anchor="middle" fill="#1749a0">FXO / LINE</text>
+    <rect x="665" y="265" width="112" height="29" rx="5" fill="#fff" stroke="#2563eb" stroke-width="2"/>
+    <text x="721" y="285" font-size="15" text-anchor="middle" fill="#1749a0">FXS / PHONE</text>
+
+    <!-- House phone -->
+    <rect x="959" y="155" width="177" height="162" rx="12" fill="#f5f5f3" stroke="#30343b" stroke-width="3"/>
+    <path d="M 996 208 Q 997 187 1018 187 L 1078 187 Q 1099 187 1100 208 L 1100 224 L 1080 224 L 1072 211 Q 1067 205 1059 205 L 1037 205 Q 1029 205 1024 211 L 1016 224 L 996 224 Z" fill="#fff" stroke="#30343b" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M 1017 252 Q 1048 229 1079 252 M 1026 264 L 1070 264" fill="none" stroke="#30343b" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="1048" y="351" font-size="20" text-anchor="middle" font-weight="700">House phone</text>
+    <text x="1048" y="376" font-size="15" text-anchor="middle" fill="#5c6470">rings on allowed calls</text>
+
+    <!-- Physical analog cabling. -->
+    <path d="M 241 238 C 292 235 342 235 380 238" fill="none" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round" marker-end="url(#blue-arrow)"/>
+    <text x="315" y="217" font-size="16" text-anchor="middle" fill="#1749a0" font-weight="700">analog line</text>
+    <path d="M 810 238 C 858 235 906 235 947 238" fill="none" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round" marker-end="url(#blue-arrow)"/>
+    <text x="882" y="217" font-size="16" text-anchor="middle" fill="#1749a0" font-weight="700">analog handset</text>
+
+    <!-- Pi, linked to the gateway's network port. -->
+    <path d="M 600 320 L 600 398" fill="none" stroke="#168c93" stroke-width="3.5" stroke-linecap="round"/>
+    <text x="622" y="383" font-size="16" fill="#087b83" font-weight="700">Ethernet / SIP</text>
+    <rect x="345" y="407" width="510" height="128" rx="16" fill="#f1faf9" stroke="#168c93" stroke-width="3"/>
+    <text x="600" y="442" font-size="21" text-anchor="middle" font-weight="700">Raspberry Pi 5</text>
+    <text x="600" y="469" font-size="16" text-anchor="middle">Asterisk answers, prompts, and routes calls</text>
+    <text x="600" y="494" font-size="16" text-anchor="middle">Python FastAGI checks trusted callers</text>
+    <text x="600" y="519" font-size="16" text-anchor="middle">SQLite stores trusted numbers and call outcomes</text>
+
+    <rect x="52" y="564" width="1096" height="62" rx="12" fill="#eef5ff" stroke="#b6d0fb" stroke-width="2"/>
+    <text x="76" y="590" font-size="17" fill="#1749a0" font-weight="700">Known caller:</text>
+    <text x="190" y="590" font-size="17">ring directly</text>
+    <text x="356" y="590" font-size="17" fill="#1749a0" font-weight="700">Unknown caller:</text>
+    <text x="508" y="590" font-size="17">press 1 within 8 seconds to ring</text>
+    <text x="76" y="614" font-size="15" fill="#5c6470">Wrong digit or no answer: disconnect before the house phone rings. Every outcome is logged.</text>
+  </g>
+</svg>
