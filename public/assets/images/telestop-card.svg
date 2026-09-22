@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 316" role="img" aria-labelledby="title description">
+  <title id="title">Telestop landline call screening setup</title>
+  <desc id="description">A landline connects to a Grandstream gateway and house phone. A Raspberry Pi screens the call over the network.</desc>
+  <rect width="460" height="316" fill="#111722"/>
+
+  <g fill="none" stroke="#c9d7e8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="28" y="79" width="79" height="91" rx="7" fill="#253449"/>
+    <path d="M 48 102 L 87 102 L 87 142 L 48 142 Z M 58 115 L 58 128 M 67 115 L 67 128 M 76 115 L 76 128"/>
+
+    <rect x="166" y="87" width="128" height="74" rx="11" fill="#253449"/>
+    <path d="M 184 142 L 207 142 L 207 150 L 184 150 Z M 252 142 L 275 142 L 275 150 L 252 150 Z"/>
+
+    <path d="M 350 112 Q 350 97 365 97 L 406 97 Q 421 97 421 112 L 421 153 Q 421 166 407 166 L 365 166 Q 350 166 350 153 Z" fill="#253449"/>
+    <path d="M 363 104 L 377 104 L 377 120 Q 377 127 385 131 Q 393 135 400 129 L 407 121 L 420 121"/>
+
+    <rect x="179" y="207" width="102" height="54" rx="8" fill="#253449"/>
+    <path d="M 191 222 L 269 222 M 194 240 L 204 240 M 212 240 L 222 240 M 230 240 L 240 240"/>
+  </g>
+
+  <g fill="none" stroke="#36d6e7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 111 125 L 156 125 M 149 119 L 156 125 L 149 131"/>
+    <path d="M 299 125 L 342 125 M 335 119 L 342 125 L 335 131"/>
+    <path d="M 230 165 L 230 199 M 224 192 L 230 199 L 236 192"/>
+  </g>
+
+  <g fill="#a0b2cc" font-family="Arial, Helvetica, sans-serif" font-size="18" text-anchor="middle">
+    <text x="68" y="193">Landline</text>
+    <text x="230" y="122">HT813</text>
+    <text x="385" y="193">Home phone</text>
+    <text x="230" y="286">Raspberry Pi</text>
+  </g>
+</svg>
