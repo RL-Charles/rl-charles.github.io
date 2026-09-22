@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 316" role="img" aria-labelledby="title description">
+  <title id="title">ThinkPad, JCD543 dock, and one external monitor</title>
+  <desc id="description">A simple preview of the tested USB-C to MCT HDMI display connection.</desc>
+  <rect width="460" height="316" fill="#111722"/>
+
+  <g fill="none" stroke="#c9d7e8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 22 88 Q 22 82 28 82 L 132 82 Q 138 82 138 88 L 138 181 L 22 181 Z"/>
+    <path d="M 13 186 L 146 186 L 153 195 L 7 195 Z" fill="#253449"/>
+    <path d="M 33 94 L 127 94 L 127 169 L 33 169 Z" fill="#193454"/>
+
+    <path d="M 173 117 Q 173 111 179 111 L 277 111 Q 283 111 283 117 L 283 176 Q 283 182 277 182 L 179 182 Q 173 182 173 176 Z" fill="#253449"/>
+    <path d="M 188 161 L 203 161 L 203 169 L 188 169 Z M 210 161 L 225 161 L 225 169 L 210 169 Z"/>
+    <path d="M 250 158 L 271 158 L 268 170 L 253 170 Z" stroke="#36d6e7"/>
+
+    <path d="M 318 76 Q 318 70 324 70 L 433 70 Q 439 70 439 76 L 439 184 Q 439 190 433 190 L 324 190 Q 318 190 318 184 Z"/>
+    <path d="M 329 81 L 428 81 L 428 178 L 329 178 Z" fill="#193454"/>
+    <path d="M 379 190 L 379 206 M 350 207 L 408 207"/>
+  </g>
+
+  <g fill="none" stroke="#36d6e7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 149 146 C 156 144 163 144 168 146 M 161 140 L 168 146 L 161 152"/>
+    <path d="M 286 146 C 296 143 307 143 313 146 M 306 140 L 313 146 L 306 152"/>
+    <path d="M 340 131 Q 358 111 376 131 T 416 131" stroke-width="2.5"/>
+  </g>
+
+  <rect x="121" y="245" width="218" height="42" rx="21" fill="#183c4c" stroke="#36d6e7" stroke-width="2"/>
+  <text x="230" y="272" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#c8f7fb">1080p / 60 Hz</text>
+</svg>

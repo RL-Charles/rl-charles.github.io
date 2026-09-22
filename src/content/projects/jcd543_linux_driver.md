@@ -2,6 +2,7 @@
 title: JCD543 Linux Display Driver
 subtitle: Experimental C driver for a USB display controller on Linux
 tools: ["C", "Linux", "USB", "DRM"]
+image: /assets/images/jcd543-card.svg
 github_repo: https://github.com/RL-Charles/jcd543-mct-t6-linux-driver
 order: 1
 ---
