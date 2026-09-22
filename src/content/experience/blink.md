@@ -2,8 +2,8 @@
 title: Blink Financial Intelligence
 role: Co-Founder & Lead Engineer
 company: Blink Financial Intelligence
-logo: /assets/images/blinkos_logo.png
-image: /assets/images/blinkos_logo.png
+logo: /assets/images/blinkos-wordmark.svg
+image: /assets/images/blinkos-wordmark.svg
 tools: ["Python", "FastAPI", "React", "TypeScript", "LangGraph", "DuckDB", "PostgreSQL", "Redis", "AWS Bedrock", "Docker"]
 skills:
   - group: AI & Databases
