@@ -6,12 +6,12 @@ logo: /assets/images/blinkos-wordmark.svg
 image: /assets/images/blinkos-wordmark.svg
 tools: ["Python", "FastAPI", "React", "TypeScript", "LangGraph", "DuckDB", "PostgreSQL", "Redis", "AWS Bedrock", "Docker"]
 skills:
-  - group: AI & Databases
+  - group: Libraries, Services, & Databases
     items: ["LangGraph", "AWS Bedrock", "DuckDB", "PostgreSQL", "Redis"]
   - group: Frameworks
-    items: ["FastAPI", "React", "Vite", "React Router v7", "Tailwind CSS"]
+    items: ["FastAPI", "React", "Vite", "Tailwind CSS"]
   - group: Devops & Security
-    items: ["Docker Compose", "Xero OAuth 2.0", "Fernet Token Encryption", "Auth0"]
+    items: ["Docker Compose", "Token Encryption", "Auth0"]
 order: 0
 ---
 
