@@ -36,7 +36,7 @@ At the core of the backend is an asynchronous, multi-agent LangGraph system. It 
 ## Key Technical Features
 
 ### 1. High-Performance Local Analytics (DuckDB + Redis)
-To enable instantaneous financial computations on raw journals without bloating cloud databases, the system deploys **DuckDB** as a fast, in-memory analytical database:
+To enable instantaneous financial computations on raw journals while keeping cloud databases lean, the system deploys **DuckDB** as a fast, in-memory analytical database:
 * Utilizes a tenant-isolated storage paradigm.
 * Integrated a **Redis distributed lock** to prevent concurrent query collisions.
 * Implemented caching for computed reports and structured decisions inside Redis.

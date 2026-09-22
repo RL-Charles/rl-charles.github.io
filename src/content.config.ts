@@ -1,7 +1,7 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
-// Projects collection — replaces the Jekyll `projects` collection.
+// Projects collection: replaces the Jekyll `projects` collection.
 // Each file lives in src/content/projects/<slug>.md and is rendered at /projects/<slug>/.
 const projects = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/projects' }),
@@ -18,7 +18,7 @@ const projects = defineCollection({
   }),
 });
 
-// Work-experience collection — rendered at /experience/<slug>/.
+// Work-experience collection: rendered at /experience/<slug>/.
 const experience = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/experience' }),
   schema: z.object({
