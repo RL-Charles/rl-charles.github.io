@@ -214,6 +214,12 @@ pre code { background: none; border: 0; padding: 0; }
   padding: 0.65rem;
   background: rgba(255, 255, 255, 0.03);
 }
+.card-media.is-blink-wordmark {
+  aspect-ratio: 16 / 9;
+  padding: 0.25rem 0;
+  background: transparent;
+  border: 0;
+}
 .card h3 {
   margin: 0 0 0.35rem;
   color: var(--text);

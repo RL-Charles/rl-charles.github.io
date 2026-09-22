@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 102" role="img" aria-labelledby="title description">
+  <title id="title">BlinkOS</title>
+  <desc id="description">A soft four-point turquoise spark beside the BlinkOS wordmark.</desc>
+  <path d="M60 12
+           Q61 12 61.5 15
+           C65 31 73 39 91 43.5
+           Q94 44.5 91 45.5
+           C73 50 65 58 61.5 75
+           Q60 79 58.5 75
+           C55 58 47 50 29 45.5
+           Q26 44.5 29 43.5
+           C47 39 55 31 58.5 15
+           Q59 12 60 12 Z"
+        fill="#4bdce4"/>
+  <text x="126" y="67" fill="#f3f7fb"
+        font-family="Arial, Helvetica, sans-serif" font-size="53"
+        font-weight="400" letter-spacing="-1.5">BlinkOS</text>
+</svg>
