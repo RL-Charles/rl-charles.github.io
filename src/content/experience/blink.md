@@ -12,16 +12,32 @@ skills:
     items: ["FastAPI", "React", "Vite", "React Router v7", "Tailwind CSS"]
   - group: Devops & Security
     items: ["Docker Compose", "Xero OAuth 2.0", "Fernet Token Encryption", "Auth0"]
-lead_image: /assets/images/blinkos_architecture.png
-lead_image_alt: BlinkOS Multi-Agent & Multi-Tenant System Architecture Diagram
 order: 0
 ---
 
 ## Overview
 
-Architected and built Blink Financial Intelligence (live at [blinkos.app](https://blinkos.app)) from the ground up, engineering a multi-agent AI system that translates raw business transactions, P&Ls, and balance sheets into CFO-grade advisory reports.
+As co-founder and lead engineer, I built Blink Financial Intelligence to bring company financial data into one place for analysis, reports, and decisions. The [live application](https://blinkos.app) includes onboarding, data imports, dashboards, report review, and chat.
 
-* **Designed & implemented a 7-node LangGraph pipeline** using AWS Bedrock and Python, automating complete financial reviews including qualitative WebSocket-driven chat interviews.
-* **Engineered a tenant-isolated analytics layer using DuckDB**, speeding up calculations and query generation times by 80% compared to legacy setups.
-* **Developed a secure Xero API sync engine** utilizing OAuth 2.0 and AES-256 Fernet encryption, implementing custom token-bucket rate limiting to scale concurrent data pulls safely.
-* **Built a React 18 client application** with React Router v7, supporting complex data onboarding, real-time event streaming, and 12 modular analysis dashboards.
+## What I built
+
+- **Client:** A React application for uploads, dashboards, reports, decisions, and chat, with Auth0 sign-in and WebSocket analysis progress.
+- **API and integrations:** FastAPI routes for company access, document processing, and Xero, QuickBooks, and Procore connections.
+- **Data layer:** A separate DuckDB file for each company's financial facts, PostgreSQL for companies, documents, and reports, and Redis for jobs, progress events, caching, and DuckDB write locks.
+- **Financial analysis:** A LangGraph workflow that computes metrics, gathers business context when useful, analyzes liquidity, profitability, and risk, then produces a report, chart specifications, and decisions. AWS Bedrock powers model calls and a separate data-aware chat agent.
+
+## Architecture
+
+![BlinkOS architecture showing the React client, FastAPI, business inputs, company data stores, analysis services, AWS Bedrock, and results](/assets/images/blinkos-architecture.svg)
+
+[Open the architecture diagram at full size](/assets/images/blinkos-architecture.svg)
+
+Business owners upload CSV, XLSX, or PDF files and connect accounting systems. FastAPI parses or syncs that data into company records. Analysis reads the financial facts and sends progress, interview questions, and results back to the client.
+
+## Interface preview
+
+![BlinkOS dashboard with financial metrics, charts, and analysis cards](/assets/images/blinkos_homepage.png)
+*Financial overview with sample data.*
+
+![BlinkOS cash flow forecasting screen](/assets/images/blinkos_cashflow.jpg)
+*Cash flow view.*
