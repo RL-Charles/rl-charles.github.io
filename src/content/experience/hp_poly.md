@@ -26,6 +26,6 @@ Poly's hardware devices and their client applications, spanning low-level device
 up through full-stack integration-test frameworks.
 
 - **Architected a full-stack automated testing framework** for peripheral IoT devices using NestJS and GraphQL, replacing a legacy system to improve end-to-end testing consistency and performance.
-- **Managed 50+ lab devices and on-premises networks** with Ansible, streamlining configuration and reducing setup time by 90%.
+- **Managed 100+ lab devices and on-premises networks** with Ansible, streamlining configuration and reducing setup time by 90%.
 - **Designed and maintained REST API infrastructure** for internal testing, supporting cross-platform compatibility (Linux, macOS, Windows, x86, ARM).
 - **Engineered high-performance C++ and Rust native extensions for Python** to handle low-latency, real-time device-communication testing.
