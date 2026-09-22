@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 860" role="img" aria-labelledby="title description">
+  <title id="title">HP and Poly distributed device testing architecture</title>
+  <desc id="description">A cloud test control plane sends test plans and configuration to distributed Windows and macOS test hosts. Local test agents use client applications, test libraries, operating system drivers, and device APIs to communicate with cameras, headsets, and other USB devices. Device events, assertions, logs, and test results travel back through the hosts to the cloud.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M1 1 L9 5 L1 9" fill="none" stroke="#40505a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-cyan" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M1 1 L9 5 L1 9" fill="none" stroke="#16899a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <style>
+    .ink { fill: #27343b; }
+    .muted { fill: #52616a; }
+    .title { font: 700 34px 'Trebuchet MS', Arial, sans-serif; }
+    .subtitle { font: 18px 'Trebuchet MS', Arial, sans-serif; }
+    .section { font: 700 17px 'Trebuchet MS', Arial, sans-serif; letter-spacing: .04em; }
+    .box-title { font: 700 25px 'Trebuchet MS', Arial, sans-serif; }
+    .body { font: 18px 'Trebuchet MS', Arial, sans-serif; }
+    .small { font: 16px 'Trebuchet MS', Arial, sans-serif; }
+    .label { font: 700 16px 'Trebuchet MS', Arial, sans-serif; }
+    .outline { stroke: #40505a; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+    .sketch { fill: none; stroke: #40505a; stroke-width: 1.1; opacity: .38; stroke-linecap: round; stroke-linejoin: round; }
+    .flow { fill: none; stroke: #40505a; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrow); }
+    .return { fill: none; stroke: #16899a; stroke-width: 2.7; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrow-cyan); }
+  </style>
+
+  <rect width="1200" height="860" fill="#fbfaf6"/>
+  <text x="55" y="57" class="title ink">Distributed device testing architecture</text>
+  <text x="55" y="87" class="subtitle muted">Cloud-coordinated tests exercised real Poly hardware across Windows and macOS lab hosts.</text>
+  <path d="M55 106 C336 104 587 108 866 105 L1145 107" fill="none" stroke="#d2d7d3" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Cloud control plane -->
+  <text x="55" y="143" class="section muted">CLOUD</text>
+  <path d="M65 161 L1133 158 Q1146 160 1145 173 L1143 308 Q1142 321 1131 321 L65 323 Q54 322 55 311 L54 174 Q55 163 65 161 Z" fill="#e8f3f5" class="outline"/>
+  <path d="M62 166 L1138 163 M59 316 L1137 317" class="sketch"/>
+  <text x="85" y="205" class="box-title ink">Test control plane</text>
+  <text x="85" y="239" class="body ink">NestJS and GraphQL API</text>
+  <text x="85" y="270" class="body ink">Test definitions, scheduling, inventory, and configuration</text>
+  <text x="85" y="298" class="small muted">Receives execution status, assertions, logs, and final results</text>
+
+  <!-- Host layer -->
+  <text x="55" y="383" class="section muted">DISTRIBUTED LAB HOSTS</text>
+  <path d="M65 401 L548 398 Q560 400 560 413 L558 557 Q557 570 546 570 L65 572 Q54 571 55 560 L54 414 Q55 403 65 401 Z" fill="#fbefd9" class="outline"/>
+  <path d="M61 406 L553 403 M59 565 L551 566" class="sketch"/>
+  <text x="85" y="445" class="box-title ink">Windows test hosts</text>
+  <text x="85" y="481" class="body ink">Test agent and automation runner</text>
+  <text x="85" y="512" class="body ink">Client applications and test libraries</text>
+  <text x="85" y="542" class="small muted">Runs assigned tests against attached devices</text>
+
+  <path d="M652 401 L1133 398 Q1146 400 1145 413 L1143 557 Q1142 570 1131 570 L652 572 Q641 571 642 560 L641 414 Q642 403 652 401 Z" fill="#f0ebf6" class="outline"/>
+  <path d="M648 406 L1138 403 M646 565 L1137 566" class="sketch"/>
+  <text x="672" y="445" class="box-title ink">macOS test hosts</text>
+  <text x="672" y="481" class="body ink">Test agent and automation runner</text>
+  <text x="672" y="512" class="body ink">Client applications and test libraries</text>
+  <text x="672" y="542" class="small muted">Runs assigned tests against attached devices</text>
+
+  <!-- Request paths -->
+  <path d="M305 329 C305 350 305 371 305 392" class="flow"/>
+  <path d="M895 329 C895 350 895 371 895 392" class="flow"/>
+  <text x="322" y="360" class="label muted">test plan + config</text>
+  <text x="912" y="360" class="label muted">test plan + config</text>
+
+  <!-- Driver layer -->
+  <path d="M65 631 L1133 628 Q1146 630 1145 643 L1144 708 Q1143 720 1132 720 L65 722 Q54 721 55 710 L54 644 Q55 633 65 631 Z" fill="#edf2ee" class="outline"/>
+  <path d="M61 636 L1138 633 M59 715 L1138 716" class="sketch"/>
+  <text x="85" y="674" class="box-title ink">OS drivers and device APIs</text>
+  <text x="455" y="674" class="body ink">Python test interfaces</text>
+  <text x="720" y="674" class="body ink">C++ and Rust device libraries</text>
+  <text x="1010" y="674" class="small muted">USB</text>
+
+  <path d="M297 579 L297 622" class="flow"/>
+  <path d="M313 622 L313 579" class="flow"/>
+  <path d="M887 579 L887 622" class="flow"/>
+  <path d="M903 622 L903 579" class="flow"/>
+
+  <!-- Devices -->
+  <path d="M65 772 L315 769 Q326 771 325 784 L324 830 L55 830 L54 785 Q55 774 65 772 Z" fill="#f6e9e4" class="outline"/>
+  <text x="190" y="807" text-anchor="middle" class="body ink">Cameras + video bars</text>
+  <path d="M475 772 L725 769 Q736 771 735 784 L734 830 L465 830 L464 785 Q465 774 475 772 Z" fill="#f7eee0" class="outline"/>
+  <text x="600" y="807" text-anchor="middle" class="body ink">Headsets</text>
+  <path d="M885 772 L1133 769 Q1145 771 1144 784 L1143 830 L875 830 L874 785 Q875 774 885 772 Z" fill="#eaf3e8" class="outline"/>
+  <text x="1009" y="807" text-anchor="middle" class="body ink">Other USB devices</text>
+  <path d="M182 730 L182 763" class="flow"/>
+  <path d="M198 763 L198 730" class="flow"/>
+  <path d="M592 730 L592 763" class="flow"/>
+  <path d="M608 763 L608 730" class="flow"/>
+  <path d="M1001 730 L1001 763" class="flow"/>
+  <path d="M1017 763 L1017 730" class="flow"/>
+
+  <!-- Result return path -->
+  <path d="M1130 758 C1171 738 1172 694 1171 651 L1170 443 C1170 393 1167 356 1137 330" class="return"/>
+  <text x="1190" y="594" class="label" fill="#16899a" transform="rotate(-90 1190 594)">events + results via test hosts</text>
+</svg>
